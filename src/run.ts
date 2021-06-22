@@ -10,8 +10,9 @@ import { prettyLog, setUpUserAgent } from './utils/utilities'
 async function run() {
   let policyResults: PolicyResult[] = null;
   try {
-    Inputs.readInputs();
-    setUpUserAgent();
+      Inputs.readInputs();
+      console.log(Inputs);
+    /*setUpUserAgent();
     
     const policyRequests: PolicyRequest[] = await getAllPolicyRequests();
 
@@ -20,7 +21,7 @@ async function run() {
 
     //3. Print summary result to console
     printSummary(policyResults);
-
+    */
   } catch (error) {
     core.setFailed(error.message);
     prettyLog(`Error : ${error}`);
