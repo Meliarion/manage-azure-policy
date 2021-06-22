@@ -4,6 +4,7 @@ const INPUT_PATHS_KEY = 'paths';
 const INPUT_IGNORE_PATHS_KEY = 'ignore-paths';
 const INPUT_ASSIGNMENTS_KEY = 'assignments';
 const INPUT_ENFORCEMENT_MODE_KEY = 'enforce';
+const INPUT_PARAMETERS_KEY = 'parameters';
 const FORCE_UPDATE_KEY = "force-update";
 export const INPUT_MODE = "mode";
 const DO_NOT_ENFORCE_PREFIX = '~';
@@ -25,13 +26,14 @@ export let enforcePatterns: string[] = [];
 export let doNotEnforcePatterns: string[] = [];
 
 export function readInputs() {
-  const pathsInput = core.getInput(INPUT_PATHS_KEY, { required: true });
+    const pathsInput = core.getInput(INPUT_PATHS_KEY, { required: true });
+    const paramsInput = core.getInput(INPUT_PARAMETERS_KEY)
   const ignorePathsInput = core.getInput(INPUT_IGNORE_PATHS_KEY);
   const assignmentsInput = core.getInput(INPUT_ASSIGNMENTS_KEY);
   const enforcementModeInput = core.getInput(INPUT_ENFORCEMENT_MODE_KEY);
   mode = core.getInput(INPUT_MODE) ? core.getInput(INPUT_MODE).toLowerCase() : MODE_INCREMENTAL;
   forceUpdate = core.getInput(FORCE_UPDATE_KEY) ? core.getInput(FORCE_UPDATE_KEY).toLowerCase() == "true" : false;
-
+    console.log(paramsInput);
   paths = getInputArray(pathsInput);
   ignorePaths = getInputArray(ignorePathsInput);
   assignments = getInputArray(assignmentsInput);
