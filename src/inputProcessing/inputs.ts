@@ -81,7 +81,7 @@ export function getInputMap(input: string): Map<String, String> | undefined {
         var mapRow = input.split('\n').map(item => item.trim());
         for (var row in mapRow) {
             var tmp = row.split(':');
-            map.set(tmp[0], tmp[1]);
+            map.set(tmp[0].trim(), tmp[1].trim());
         }
         return map;
     }
