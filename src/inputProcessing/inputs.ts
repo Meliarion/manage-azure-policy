@@ -33,6 +33,8 @@ export function readInputs() {
   const enforcementModeInput = core.getInput(INPUT_ENFORCEMENT_MODE_KEY);
   mode = core.getInput(INPUT_MODE) ? core.getInput(INPUT_MODE).toLowerCase() : MODE_INCREMENTAL;
   forceUpdate = core.getInput(FORCE_UPDATE_KEY) ? core.getInput(FORCE_UPDATE_KEY).toLowerCase() == "true" : false;
+
+  forceUpdate = core.getInput(FORCE_UPDATE_KEY) ? core.getInput(FORCE_UPDATE_KEY).toLowerCase() == "true" : false;
     console.log(paramsInput);
   paths = getInputArray(pathsInput);
   ignorePaths = getInputArray(ignorePathsInput);
