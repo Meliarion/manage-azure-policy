@@ -75,6 +75,19 @@ export function getInputArray(input: string): string[] | undefined {
   return input ? input.split('\n').map(item => item.trim()) : undefined;
 }
 
+export function getInputMap(input: string): Map<String, String> | undefined {
+    if (input) {
+        var map = new Map<String, String>();
+        var mapRow = input.split('\n').map(item => item.trim());
+        for (var row in mapRow) {
+            var tmp = row.split(':');
+            map.set(tmp[0], tmp[1]);
+        }
+        return map;
+    }
+    return undefined
+}
+
 function validateAssignments(): void {
   validateAssignmentLikePatterns(INPUT_ASSIGNMENTS_KEY, assignments);
 }
