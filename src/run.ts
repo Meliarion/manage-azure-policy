@@ -8,10 +8,10 @@ import { prettyLog, setUpUserAgent } from './utils/utilities'
  * Entry point for Action
  */
 async function run() {
+    prettyLog("test1");
   let policyResults: PolicyResult[] = null;
   try {
       Inputs.readInputs();
-      console.log(Inputs);
     /*setUpUserAgent();
     
     const policyRequests: PolicyRequest[] = await getAllPolicyRequests();
